@@ -33,6 +33,7 @@ export const DUMMYPOSTS = [
     img: '/about.png',
   },
 ];
+
 const users = [
   { id: 1, name: 'John' },
   { id: 2, name: 'Jane' },
@@ -44,3 +45,15 @@ const posts = [
   { id: 3, title: 'Post 3', body: '......', userId: 2 },
   { id: 4, title: 'Post 4', body: '......', userId: 2 },
 ];
+
+export const getPosts = async () => {
+  return posts;
+};
+
+export const getPost = async (id) => {
+  return posts.find((post) => post.id === +id); //az id-t számmá kell alakítani ezért kella + jel (ua: parseInt(id))
+};
+
+export const getUser = async (id) => {
+  return users.find((user) => user.id === +id);
+};
