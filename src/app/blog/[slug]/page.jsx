@@ -4,6 +4,17 @@ import PostUser from '@/components/postUser/postUser';
 
 import { Suspense } from 'react'; //amíg az adatokat lekérjük megjelínthetünk vele plpl: Loading...
 import { getPost } from '@/lib/data';
+
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
+  //nyugodtan itt is írhatjuk az adatlekérést mert a Nexcsak egyszer fogja lekérni az adatokattJs
+  const post = await getPost(slug);
+
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+};
 //FETCH DATA WITH API
 // const getData = async (slug) => {
 //   const res = await fetch(
